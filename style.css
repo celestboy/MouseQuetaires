@@ -1,0 +1,109 @@
+/* Base settings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Team member images */
+.images-membres {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.images-membres:hover {
+    border-color: rgb(107, 107, 107);
+    transform: scale(1.05);
+}
+
+/* Video background */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0.3;
+    object-fit: cover;
+}
+
+/* Code overlay effect */
+.code-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 198, 255, 0.05) 0px, 
+            rgba(0, 198, 255, 0.05) 1px,
+            transparent 1px, 
+            transparent 2px
+        );
+    z-index: 0;
+}
+
+/* Typing animation */
+.typing-demo {
+    width: 22ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 1.5em;
+    color: #00c6ff;
+}
+
+@media (min-width: 768px) {
+    .typing-demo {
+        font-size: 2em;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+    
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
+}
+
+/* Responsive containers */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
