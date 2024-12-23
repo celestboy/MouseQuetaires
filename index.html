@@ -128,7 +128,7 @@
         </div>
     </section>
 
-    <section id="histoire" class="m-4 md:m-10 p-6 md:p-12">
+    <section id="histoire" class="p-6 md:p-12">
         <div class="text-center">
             <h2 class="text-3xl md:text-5xl mb-6 md:mb-10">Les <span class="text-blue-400 underline">MouseQuetaires</span>, notre ambition...</h2>
         
@@ -163,34 +163,79 @@
         </div>
     </section>
 
+    <section class="p-24 pt-0">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-green-400 text-3xl font-bold mb-6 px-32">Le Développement Durable, un engagement au centre de notre stratégie</h2>
+                <p class="text-green-200 text-xl">Comparaison d'un CMS vs d'un Site Codé</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <div class="bg-blue-50 p-8 rounded-lg text-center">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <p class="text-lg font-semibold text-blue-700 mb-2">Réduction Énergétique</p>
+                    <p class="text-3xl font-bold text-blue-800">60.8%</p>
+                </div>
+                <div class="bg-green-50 p-8 rounded-lg text-center">
+                    <div class="text-4xl mb-4">🌱</div>
+                    <p class="text-lg font-semibold text-green-700 mb-2">Réduction CO2</p>
+                    <p class="text-3xl font-bold text-green-800">60.7%</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-12 h-96">
+                <canvas id="impactChart"></canvas>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-500 bg-opacity-10 p-6 rounded-lg">
+                    <h3 class="font-bold text-xl mb-4 text-indigo-700">CMS</h3>
+                    <ul class="space-y-2 text-indigo-600">
+                        <li class="flex items-center"><span class="mr-2">•</span>Taille moyenne page: 2.4 MB</li>
+                        <li class="flex items-center"><span class="mr-2">•</span>Base de données: 250 MB</li>
+                        <li class="flex items-center"><span class="mr-2">•</span>24 mises à jour/an</li>
+                        <li class="flex items-center"><span class="mr-2">•</span>15 plugins</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-500 bg-opacity-10 p-6 rounded-lg">
+                    <h3 class="font-bold text-xl mb-4 text-indigo-700">Site Codé</h3>
+                    <ul class="space-y-2 text-indigo-600">
+                        <li class="flex items-center"><span class="mr-2">•</span>Taille moyenne page: 0.8 MB</li>
+                        <li class="flex items-center"><span class="mr-2">•</span>Base de données: 50 MB</li>
+                        <li class="flex items-center"><span class="mr-2">•</span>4 mises à jour/an</li>
+                        <li class="flex items-center"><span class="mr-2">•</span>0 plugins</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="bg-black">
-        <div class="container mx-auto px-6">
-            <div class="max-w-2xl mx-auto bg-gray-900 p-10 mb-12 rounded-lg neon-border">
-                <h2 class="text-4xl font-bold text-center mb-4 text-white">
-                    <span class="text-blue-500">Contactez</span> nous et parlez-nous de <span class="underline text-blue-300">votre projet</span>
-                </h2>
-                <h3 class="text-center text-lg mb-8">Vous serez recontacté au plus vite</h3>
-                <form class="space-y-6" action="send-email.php" method="post">
-                    <div>
-                        <label class="block text-gray-300 mb-2">Nom</label>
-                        <input type="text" name="name" class="w-full bg-gray-800 border-2 border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500" required/>
-                    </div>
-                    <div>
-                        <label class="block text-gray-300 mb-2">Email</label>
-                        <input type="email" name="email" class="w-full bg-gray-800 border-2 border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500" required/>
-                    </div>
-                    <div>
-                        <label class="block text-gray-300 mb-2">Message</label>
-                        <textarea name="message" class="w-full bg-gray-800 border-2 border-gray-700 rounded-lg px-4 py-3 text-white h-32 focus:outline-none focus:border-blue-500" required></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-3 rounded-full transition transform hover:scale-105">
-                            Envoyer
-                        </button>
-                    </div>
-                </form>
-            </div>
+        <div class="max-w-2xl mx-auto bg-gray-900 p-10 mb-12 rounded-lg neon-border">
+            <h2 class="text-4xl font-bold text-center mb-4 text-white">
+                <span class="text-blue-500">Contactez</span> nous et parlez-nous de <span class="underline text-blue-300">votre projet</span>
+            </h2>
+            <h3 class="text-center text-lg mb-8">Vous serez recontacté au plus vite</h3>
+            <form class="space-y-6" action="send-email.php" method="post">
+                <div>
+                    <label class="block text-gray-300 mb-2">Nom</label>
+                    <input type="text" name="name" class="w-full bg-gray-800 border-2 border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500" required/>
+                </div>
+                <div>
+                    <label class="block text-gray-300 mb-2">Email</label>
+                    <input type="email" name="email" class="w-full bg-gray-800 border-2 border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500" required/>
+                </div>
+                <div>
+                    <label class="block text-gray-300 mb-2">Message</label>
+                    <textarea name="message" class="w-full bg-gray-800 border-2 border-gray-700 rounded-lg px-4 py-3 text-white h-32 focus:outline-none focus:border-blue-500" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-3 rounded-full transition transform hover:scale-105">
+                        Envoyer
+                    </button>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -210,6 +255,11 @@
             </div>
         </div>
     </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
 
