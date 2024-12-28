@@ -1,0 +1,149 @@
+
+@import url('https://fonts.cdnfonts.com/css/walkway');
+@import url('https://fonts.cdnfonts.com/css/montserrat');
+
+* {
+    font-family: 'Walkway SemiBold', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+span {
+    color: #0091d9
+}
+
+    /* ------ */
+
+
+nav { background-color: rgba(31, 61, 143, .8) }
+nav span, div, a { font-family: 'Montserrat', sans-serif }
+
+nav div div a:hover {
+    color: #0f66b5;
+    transition: .3s;
+}
+
+
+#header_btn1 {
+    background-color: #0f66b5;
+} #header_btn1:hover {background-color: #1f3d8f;}
+
+#header_btn2 {
+    border: 2px solid #0f66b5;
+} #header_btn2:hover {background-color: #0f66b5;}
+
+#animated_text {
+  background-image: linear-gradient(
+    -125deg,
+    #1f2463 0%,
+    #44107a 10%,
+    #fff800 20%,
+    #ff1361 40%,
+    #1f3d8f 50%,
+    #564497 60%,
+    #1f3d8f 70%,
+    #0f66b5 80%,
+    #0091d9 90%,
+    #1f2463 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 3s linear infinite;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+    /* Début */
+
+  /* Header */
+
+/* Animation d'écriture */
+.typing-demo {
+    width: 22ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 1.5em;
+    color: #00c6ff;
+}
+
+@media (min-width: 768px) {
+    .typing-demo {
+        font-size: 2em;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+    
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
+}
+
+
+  /* Section "Équipe" */
+
+.images-membres {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+} .images-membres:hover { border-color: rgb(107, 107, 107); transform: scale(1.05); }
+
+
+
+    /* -- */
+
+/* index.html */
+#contact_btn {
+    background-color: #0f66b5;
+    transition: .3s;
+} #contact_btn:hover { background-color: #1f3d8f }
+
+/* contact.html */
+#submit_btn {
+    background-color: #0f66b5;
+    transition: .3s;
+} #submit_btn:hover { background-color: #1f3d8f }
+
+
+
+    /* Footer */
+
+footer span {
+    font-family: 'Montserrat', sans-serif
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+
+

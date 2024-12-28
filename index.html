@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Quetaires - Agence Web</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
+</head>
+<body class="bg-black">
+
+    <nav class="fixed top-0 w-full z-50 p-4">
+        <div class="flex justify-between items-center">
+            <a href="#home" class="text-2xl flex items-center">
+                <img src="images/logo.png" class="h-12 mx-6" alt="logo MouseQuetaires">
+                <span>Mouse</span>Quetaires
+            </a>
+            
+            <button id="burger-menu" class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+
+            <div id="nav-menu" class="hidden md:flex md:space-x-6 text-gray-300">
+                <a href="index.html">Accueil</a>
+                <a href="#services">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="flex flex-col space-y-4 mt-4 text-center">
+                <a href="index.html">Accueil</a>
+                <a href="#services">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <header id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden mt-24 md:mt-0">
+        
+        <div class="relative z-10 container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="typing-demo mb-8">
+                    &lt;mouse-quetaires/&gt;
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-8 text-white">
+                    Créons le <span id="animated_text">Futur Numérique</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-10">
+                    Transformation digitale. Innovation technologique. Création d'identité numérique.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+                    <a href="#services" id="header_btn1" class="text-white px-8 py-3 rounded-full transition transform hover:scale-105 shadow-lg text-center">
+                        Découvrir Nos Solutions
+                    </a>
+                    <a href="contact.html" id="header_btn2" class="text-blue-500 hover:text-white px-8 py-3 rounded-full transition transform hover:scale-105 shadow-lg text-center">
+                        Commencer un Projet
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+        <!-- Chatbot -->
+
+    <div class="chat-icon" onclick="toggleChat()">
+        <i class="fas fa-comments"></i>
+    </div>X
+
+    <div class="fixed bottom-5 right-5 w-14 h-14 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center cursor-pointer shadow-lg transition-transform duration-300 hover:scale-110 z-50" onclick="toggleChat()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+        </svg>
+    </div>
+
+    <div id="chatbot" class="hidden fixed bottom-24 right-5 w-80 md:w-96 h-[32rem] bg-gray-900 rounded-xl shadow-2xl flex flex-col overflow-hidden z-50">
+        <div class="bg-blue-600 p-4 flex justify-between items-center">
+            <h3 class="text-white font-semibold text-lg">Assistant Mouse Quetaires</h3>
+            <button onclick="toggleChat()" class="text-white hover:text-gray-200 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4">
+            <div class="message ai-message max-w-[80%] bg-gray-800 text-white p-3 rounded-xl rounded-bl-sm">
+                Bonjour ! Je suis l'assistant virtuel de Mouse Quetaires. Comment puis-je vous aider aujourd'hui ?
+            </div>
+        </div>
+
+        <div class="p-4 border-t border-gray-700 bg-gray-900">
+            <div class="flex space-x-2">
+                <input type="text" id="user-input" 
+                    class="flex-1 bg-gray-800 text-white rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 border border-gray-700"
+                    placeholder="Écrivez votre message..." 
+                    onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()" 
+                    class="bg-blue-500 hover:bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Services -->
+    <section id="services" class="gradient-bg py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-white">
+                Nos <span>Services</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-4 md:gap-8 md:text-left text-center">
+                <div class="bg-gray-900 p-4 md:p-8 rounded-lg neon-border hover:scale-105 transition transform">
+                    <div class="text-blue-500 text-4xl mb-6 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2 md:mb-4 text-white">Développement Web</h3>
+                    <p class="text-sm md:text-base text-gray-300">
+                        Création de sites web responsive, dynamiques et performants, utilisant les dernières technologies du marché.
+                    </p>
+                </div>
+                <div class="bg-gray-900 p-8 rounded-lg neon-border hover:scale-105 transition transform">
+                    <div class="text-blue-500 text-4xl mb-6 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.485 8.485M7 17h.01" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Design / Graphisme</h3>
+                    <p class="text-gray-300">
+                        Conception d'interfaces utilisateur intuitives et esthétiques qui captivent et guident vos utilisateurs. <br>
+                        Réalisations de visuels quelconques selon vos demandes.
+                    </p>
+                </div>
+                <div class="bg-gray-900 p-8 rounded-lg neon-border hover:scale-105 transition transform">
+                    <div class="text-blue-500 text-4xl mb-6 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Maintenance totale</h3>
+                    <p class="text-gray-300">
+                        Maintenance totale de votre projet sur le long terme disponible (avec l'hébergement) et mises à jour de votre site possible à tout moment, sous devis, réalisé dans les meilleurs délais.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipe -->
+    <section id="team" class="md:py-24 pb-24 px-4">
+
+        <h2 class="text-center text-3xl md:text-4xl mb-12">Découvrez nos équipes</h2>
+
+        <div class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0 items-center justify-center">
+            <div class="flex flex-col items-center">
+                <img src="images/photo-samuel.jpg" alt="Samuel Alhadef" class="images-membres rounded-full w-32 md:w-52 h-32 md:h-52 m-6 md:m-14">
+                <div class="text-xl md:text-2xl mb-2 md:mb-4 font-bold">Samuel Alhadef</div>
+                <div class="text-gray-300">CCO | Chief Commercial Officer</div>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <img src="images/photo-célestin.jpg" alt="Célestin Godefroy" class="images-membres rounded-full w-32 md:w-52 h-32 md:h-52 m-6 md:m-14">
+                <div class="text-xl md:text-2xl mb-2 md:mb-4 font-bold">Célestin Godefroy</div>
+                <div class="text-gray-300">COO | Chief Operational Officer</div>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <img src="images/photo-ilan.jpeg" alt="Ilan Maouchi" class="images-membres rounded-full w-32 md:w-52 h-32 md:h-52 m-6 md:m-14">
+                <div class="text-xl md:text-2xl mb-2 md:mb-4 font-bold">Ilan Maouchi</div>
+                <div class="text-gray-300">Expert Coding</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qui nous sommes -->
+    <section id="histoire" class="px-4 md:p-12 lg:px-24">
+        <div class="text-center max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl lg:text-5xl mb-6 md:mb-10">Les <span class="underline">MouseQuetaires</span>, notre ambition...</h2>
+        
+            <p class="text-base md:text-lg mt-6 md:mt-12 text-left md:text-justify"><span class="underline text-2xl">N</span>ous 
+            vivons actuellement l'une des plus grandes révolutions de l'histoire de l'humanité : l'avènement de l'Intelligence
+            Artificielle.Chez <span class="underline">Mousequetaire</span>, nous avons décidé d'être à l'avant-garde
+            de cette transformation.
+            <br>
+            Qui sommes-nous ? À l'image du roman d'Alexandre Dumas, nous sommes quatre passionnés : trois développeurs et un
+            artiste, unis par une même vision - comme Athos, Porthos, Aramis et D'Artagnan. <br> Notre mission ? Révolutionner la
+            création de sites web en alliant technologie de pointe, respect de l'environnement et accessibilité financière.
+            <br><br>
+            Notre différence ? Nous développons des sites web sur mesure, sans utiliser de CMS. Pourquoi ? Les études montrent que :
+
+            Les sites personnalisés sont 50% plus rapides que les sites WordPress
+            Le référencement naturel est amélioré de 72% par rapport aux CMS traditionnels
+            L'empreinte carbone est réduite de 60% grâce à un code optimisé
+            La sécurité est renforcée : 94% des sites WordPress hackés en 2023 l'ont été à cause de plugins vulnérables
+            </p>
+
+        </div>
+
+
+        <div class="text-left pt-12 md:pt-24 pb-12 flex flex-col md:flex-row px-4"> 
+            <div class="w-full md:w-4/5 mb-8 md:mb-0"> 
+                <h2 class="text-2xl md:text-3xl">Le <span>design</span>, le <span class="text-red-500 italic">coeur</span> de notre activité...</h2>
+                <div class="text-base md:text-xl m-4 md:m-6">
+                    <p class="mb-4">
+                        Nous le savons tous, l'aspect graphique de votre site web définit votre identité et permet à vos clients de s'identifier à vous.
+                    </p>
+                    <p class="mb-4">
+                        C'est pour cela que chez les <span>MouseQuetaires</span>, nous avons mis l'accent sur ce point et avons constitué une équipe basée sur des compétences développées, prouvées et compatibles.
+                    </p>
+                    <p>
+                        Notre <span class="text-gray-300">Designer</span> Dorian Collet sera présent tout au long de la réalisation de votre projet afin de respecter le cahier des charges prédéfini et peut également vous accompagner dès le début pour définir votre propre identité visuelle.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/5 flex flex-col items-center justify-center">
+                <img src="images/photo-dorian.png" alt="designer Dorian Collet" class="w-24 md:w-1/2">
+                <p class="text-center text-xs md:text-sm text-gray-300 italic mt-2">Dorian Collet | Designer</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="p-6 md:p-24 pt-0">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="text-green-400 text-2xl md:text-3xl font-bold mb-4 md:mb-6 px-4 md:px-32">Le Développement Durable, un engagement au centre de notre stratégie</h2>
+                <p class="text-green-200 text-lg md:text-xl">Comparaison de l'impact d'un CMS vs d'un Site Codé</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 cursor-default">
+                <div class="bg-blue-400 hover:bg-opacity-30 duration-200 bg-opacity-20 p-8 rounded-lg text-center">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <p class="text-lg font-semibold text-blue-700 mb-2">Réduction Énergétique</p>
+                    <p class="text-3xl font-bold text-blue-800">60.8%</p>
+                </div>
+                <div class="bg-green-400 hover:bg-opacity-30 duration-200  bg-opacity-20 p-8 rounded-lg text-center">
+                    <div class="text-4xl mb-4">🌱</div>
+                    <p class="text-lg font-semibold text-green-700 mb-2">Réduction CO2</p>
+                    <p class="text-3xl font-bold text-green-800">60.7%</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-700 bg-opacity-50 rounded-lg border-green-900 border-2 p-2 md:p-6 mb-6 md:mb-12 h-64 md:h-96">
+                <canvas id="impactChart"></canvas>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-md">
+                <div class="bg-gray-500 bg-opacity-10 p-6 rounded-lg border-gray-800 border-2">
+                    <h3 class="font-bold text-xl mb-4">CMS</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><div class="mr-2">•</div>Taille moyenne page: 2.4 MB</li>
+                        <li class="flex items-center"><div class="mr-2">•</div>Base de données: 250 MB</li>
+                        <li class="flex items-center"><div class="mr-2">•</div>24 mises à jour/an</li>
+                        <li class="flex items-center"><div class="mr-2">•</div>15 plugins</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-500 bg-opacity-10 p-6 rounded-lg border-gray-800 border-2">
+                    <h3 class="font-bold text-xl mb-4">Site Codé</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><div class="mr-2">•</div>Taille moyenne page: 0.8 MB</li>
+                        <li class="flex items-center"><div class="mr-2">•</div>Base de données: 50 MB</li>
+                        <li class="flex items-center"><div class="mr-2">•</div>4 mises à jour/an</li>
+                        <li class="flex items-center"><div class="mr-2">•</div>0 plugins</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Bouton contact -->
+    <div class="text-center mb-24">
+        <span class="block mb-8 text-2xl">Intéressé ?</span>
+        <a href="contact.html" id="contact_btn" class="p-4 rounded-lg">Nous contacter</a>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-4 md:py-8">
+        <div class="mx-auto px-4 md:px-6 text-center flex flex-col items-center">
+            <a href="#home" class="text-xl md:text-2xl font-bold flex items-center">
+                <img src="images/logo.png" class="h-12 mx-6" alt="logo MouseQuetaires">
+                <span>Mouse</span>Quetaires
+            </a>
+            <p class="text-sm md:text-base text-gray-400 m-2 md:m-4">
+                Agence de développement web & design
+            </p>
+            <div class="text-xs md:text-sm text-gray-500">
+                © 2024 Mouse Quetaire. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script src="config.js"></script>
+</body>
+</html>
+
