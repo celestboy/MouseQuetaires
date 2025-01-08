@@ -1,4 +1,7 @@
+
 document.addEventListener("DOMContentLoaded", function () {
+
+
   // Burger Menu
   const burgerButton = document.getElementById("burger-menu");
   const mobileMenu = document.getElementById("mobile-menu");
@@ -7,7 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileMenu.classList.toggle("hidden");
   });
 
-  // Chart configuration
+  
+    // Graphique écologie
   const data = {
     labels: [
       "Consommation\nénergétique\n(kWh/mois)",
@@ -98,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const ctx = document.getElementById("impactChart").getContext("2d");
   new Chart(ctx, config);
 
-  // Resize handler
+
   window.addEventListener("resize", () => {
     const width = window.innerWidth;
     const chart = Chart.instances[0];
@@ -115,9 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-      // IA :
-
-
+      // IA chatbot :
 
 function toggleChat() {
   const chatbot = document.getElementById("chatbot");
